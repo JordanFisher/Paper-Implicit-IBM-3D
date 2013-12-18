@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parskip = 0.2in
+\parindent = 0.0in
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+
+\title{Reply to Reviewer \# 1}
+\author{}
+\begin{document}
+\maketitle
+We would like to thank you,  reviewer,  for your thoughtful  comments and suggestions that helped to improve  the quality of our manuscript. 
+We have done a revision to our original work to address all the issues you brought up.
+
+
+We list below how each of the specific issues were addressed in our revised version. Your questions and comments are included in italics as reference.
+
+
+
+\begin{enumerate}
+\item {\em The authors should state the convergence threshold(s) used by CG.  Also, I assume that the basic ``fluid solver'' uses FFT.  (Perhaps these are both explicitly stated in the manuscript but I overlooked them.)}
+
+We have updated Section 6 (Numerical Results) to note our use of a 0.0001
+convergence threshold for CG.
+
+
+\item {\em If I am reading Table 6 correctly, it appears that the errors in the implicit method are in some sense lower than those of the explicit scheme.  Is this interpretation correct?  Why would the implicit scheme, which uses a number of approximations in addition to significantly larger timesteps, yield a factor of 2 higher accuracy than the explicit code?}
+
+To try to understand this, we solved the semi-implicit system using
+nothing but CG and direct fluid solves (no treecode or any other such
+approximations) and found that it yields the same increase in accuracy over the
+explicit one. Thus, the apparent improved accuracy appears to be tied directly to the implicit discretization per se which might capture better high frequency modes and/or have a smaller truncation error constant than the explicit discretization.
+
+
+\item {\em I am not sure that I understand what was done in the
+translation-invariance test that concludes sec. 6.3.  Is it exactly a repeat of the tests described in the beginning of this subsection except with the position of the structure shifted with respect to the grid, or is it something different?  What velocity fields are compared and, if they come from simulations that are shifted relative to each other, how is this comparison performed?  I would suggest that the authors state more explicitly what is done in this final test.  [I am also not sure how compelling the present test is.  I do not think that this is the case; but, what if it were the case that shifts of h/2 happen to yield acceptable accuracy but other shifts do not (e.g., perhaps because of some ``beneficial'' cancellations in the trilinear interpolation)?]}
+
+Yes, the test is a repeat with a shift in the interface position. We've expanded this section to provide more detail and to address your concerns. 
+
+\end{enumerate}
+
+\end{document}
+ 

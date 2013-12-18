@@ -1,0 +1,65 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parskip = 0.2in
+\parindent = 0.0in
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+
+\title{Reply to Reviewer \# 3}
+\author{}
+\begin{document}
+\maketitle
+We would like to thank you,  reviewer,  for your thoughtful  comments and suggestions that helped to improve  the quality of our manuscript. 
+We have done a revision to our original work to address all the issues you brought up.
+
+
+We list below how each of the specific issues were addressed in our revised version. Your questions and comments are included in italics as reference.
+
+
+
+\begin{enumerate}
+\item {\em Figure 3 concerns a steady test case. The figure plots the
+computational error against the number of terms in the SVD expansion p.
+How is the error computed? Is the exact solution known? The figure seems
+to plot the absolute error; if so, it would be helpful to also give the
+relative error, or at least the order of magnitude, e.g. is it larger or
+smaller than 1\%? It seems the error is O(h), where h is the grid spacing;
+is this correct? Can this be demonstrated numerically by plotting results
+for several values of h?}
+
+ The plot is comparing the treecode to a discrete fluid solve, not
+to an exact solution to the continuous equations. The relative difference
+is roughly 5\%, depending on $h$. This error is smaller than the error of our
+discretizations. We have added an additional subsection (6.3) to provide more data about the treecode's accuracy. In
+particular,  Figure 4 gives a numerical verification that the treecode
+error is $O(h)$. A paragraph was also added to Section 5.3 to further explain this.
+
+
+
+\item {\em Tables 2 and 5 concern unsteady test cases and show remarkable speedup
+for the proposed method in comparison with a standard explicit method.
+However there needs to be some discussion of the accuracy of these
+results, beyond the fact that the structure remains intact.}
+
+This is included in our new subsection (6.3).
+
+
+
+\end{enumerate}
+
+
+ \end{document}
+ 

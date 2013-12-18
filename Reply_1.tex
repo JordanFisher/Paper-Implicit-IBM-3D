@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parskip = 0.2in
+\parindent = 0.0in
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+
+\title{Reply to Reviewer \# 1}
+\author{}
+\begin{document}
+\maketitle
+We would like to thank you,  reviewer,  for your thoughtful  comments and suggestions that helped to improve  the quality of our manuscript. 
+We have done a revision to our original work to address all the issues you brought up.
+
+
+We list below how each of the specific issues were addressed in our revised version. Your questions and comments are included in italics as reference.
+
+
+
+\begin{enumerate}
+\item {\em How would the scheme perform for problems involving flexible fibers
+(e.g., comprised of linear springs) or bending-resistant fibers (e.g.,
+comprised of linear beams)?  Would the scheme remain competitive in such
+cases?}
+
+The difficulty of solving the implicit system depends on
+the nature of the fiber force function. This was discussed in some detail in our 2D work [JCP, 228(19), 7137--7158, 2009]. In particular, 
+if the Jacobian of the force density function is negative definite then  Newton's method, in concert with a fast methodology to evaluate
+flow-structure interactions, works extremely well. 
+Forces with a non-definite Jacobian are more difficult to handle. In our 2D work,  we developed a method to treat
+the special case of non-definite forces from highly rigid fibers. While very effective in 2D, we have not yet
+ extended this approach to 3D. 
+ 
+ From our perspective, there are two interrelated problems in the construction of effective, non-stiff IB methods: 1.~To expedite flow-structure interactions and 2.~To solve the implicit system. The approaches discussed in  [JCP, 228(19), 7137--7158, 2009] to deal with Problem 2 apply, in principle, to both the 2D and the 3D cases. In view of this, 
+ we have focused our attention on Problem 1 for the current work.  We have revised the Introduction as well as  Section 4. (Solution Methods) to better convey these points. 
+
+
+\item {\em The method also crucially relies on the discrete Green's function
+being well approximated as translationally invariant, and on the use of
+interpolation of precomputed tabulation of Green's function values.
+Although the authors demonstrate analytically that these approximations do
+not degrade the order of accuracy of the method, they both seem to be of a
+form that could exacerbate the sensitivity of the numerical results to the
+relative position of the immersed structure with respect to the fluid grid
+at practical grid spacings. It might be useful if the authors could
+provide some numerical results addressing this issue.}
+
+We have now added a subsection (6.3) to document numerically the overall accuracy of the proposed implicit methodology as compared with the explicit approach. 
+
+
+
+\item {\em Finally, a number of minor questions: At what Reynolds numbers are the flows in the numerical examples?  How does the performance of the solver depend on the Reynolds number (if it does at all)?}
+
+The simulations in the paper have $Re \approx 10$.  Based on the robustness of the semi-implicit discretization (see e.g. [8]), we expect the proposed methodology  to be robust with respect to $Re$. However, we have only tested it for moderate to small, including $Re \rightarrow 0$ (Stokes flow) Reynolds numbers and observed the same high efficiency. We have added a note in the revised manuscript to state this explicitly.
+ 
+
+\item {\em How does the performance of the solver depend on the timestep size? 
+Why use a fixed timestep size in the numerical results when presumably the
+scheme is stable up to some CFL number that is approaching 1?}
+
+ We chose $ \Delta t=O(h)$ to maintain overall first order accuracy. 
+\end{enumerate}
+
+
+ \end{document}
+ 

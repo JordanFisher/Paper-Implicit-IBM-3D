@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parskip = 0.2in
+\parindent = 0.0in
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+
+\newcommand{\Comment}[1]{}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\full}{\displaystyle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\Inf}{\infty}
+\newcommand{\B}[1]{\mathbf{#1}}
+\newcommand{\C}[1]{\mathcal{#1}}
+\newcommand{\BB}[1]{\mathbb{#1}}
+\newcommand{\ti}[1]{\tilde{#1}}
+\renewcommand{\to}{\rightarrow}
+\newcommand{\LL}{\left\langle}
+\newcommand{\RR}{\right\rangle}
+
+\title{}
+\author{}
+\begin{document}
+\maketitle
+{\bf Dear Prof. Anna-Karin Tornberg,}
+
+Dear Prof.Tornberg
+
+We have now done a revision to address the minor points for needed further
+clarification. 
+We detail below how each point/question was addressed.
+Many thanks for your excellent handling of out manuscript.
+
+With best regards, \\
+
+Jordan E. Fisher and Hector D. Ceniceros. \\ \\ \\
+
+
+Editor's Question:
+
+In your comment to me you acknowledge that ``For bounded domains, we will lose the (near)-translation invariance in Gh which is critical for our expedited
+approximation.'' I can however not find this information in this manuscript? I think it should be pointed out clearly to the reader as well, and ask you to insert a comment in the introduction where you have said that you develop the method ``for periodic boundary conditions as it is customary in the IB setting'', and then more specifically return to the issue when the specifics are described in a later section.
+
+Response:
+
+We have revised both the introduction and the initial discussion of translation
+invariance in Section 5 to mention the requirements for having approximate
+translation invariance and the implications of those requirements. Specifically, in the introduction we add
+
+``The assumption of periodic boundary conditions is critical to one aspect of the
+proposed method (the near translation invariance). However, Dirichlet type of
+boundary conditions can be easily implemented in the IB framework by treating solid boundaries as being immersed within a periodic domain.'' 
+
+and in Section 5
+
+``We note that translation invariance here is dependent on the type of boundary
+conditions on our domain $\Omega$. In particular, $\Omega$ must be either periodic or infinite $(\Omega = \BB{R}^3)$. This requirement is not as restrictive as it might seem, as Dirichlet type of boundary conditions can be  easily implemented in the IB framework as immersed boundaries within a periodic domain.''
+
+\end{document}
+ 

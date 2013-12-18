@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parskip = 0.2in
+\parindent = 0.0in
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+
+\title{Reply to Reviewer \# 2}
+\author{}
+\begin{document}
+\maketitle
+We would like to thank you,  reviewer,  for your thoughtful  comments and suggestions that helped to improve the quality of our manuscript. 
+We have done a revision to our original work to address all the issues you brought up.
+
+
+We list below how each of the specific issues were addressed in our revised version. Your questions and comments are included in italics as reference.
+
+
+
+\begin{enumerate}
+\item {\em The use of lagged spreading and interpolation operators in (10) and
+(11) would seem to limit the method to first order accuracy in time. How do you make the method higher order?}
+
+This remains to be investigated. In principle, our proposed approach could be used inside an iterative scheme, where the argument of delta functions in the spreading and interpolation operators is the current iterate of the immersed fiber configuration; the simplest case being a predictor-corrector scheme (1 iteration). On the other hand, it is not entirely clear how beneficial higher order accuracy in time would be given that in its original form the IB method
+has a spatial accuracy of only $O(h)$. 
+
+\item {\em Evaluation of the function $G_h(x, y)$ in (27) involves an expensive
+fluid solve. For efficiency, the function is precomputed and stored. It
+wasn't clear when or how often this function needs to be reevaluated.}
+
+The lookup table for $G_h$ need only be computed once for a given set of ($\Delta t$, $\rho$, $\mu$, h, $\Omega$). This computation can be done once and
+used in multiple simulations, and never needs to be reevaluated so long as the fluid parameters and domain remain constant. We have revised the manuscript after equation (27) to clarify this.
+
+\item {\em In the examples the time step constraint $\Delta t = h \sigma^{-1/2}$ is determined empirically. It seems this constraint could be calculated
+theoretically, and I am wondering why the authors have not done this? This
+time step contraint is not severe unless the surface tension is huge,
+which is the case in the examples. Does the authors method also apply when
+there is a bending stiffness, in which case the time step constraint is
+high order in h. This can be a problem even when $\sigma$ is not large.}
+
+The constraint we used follows from a simple estimate. A linear approximation to
+the velocity induced by the fiber force in one time-step is $\mathbf{f} \Delta t$. Then  one requires $|\mathbf{f}|_{\infty} \, \Delta t \leq h/\Delta t$. Given that $|\mathbf{f}|_{\infty}=O(\sigma \delta)=O(\sigma/h)$ we obtain 
+$\Delta t \leq C h\sigma^{-1/2}$.  We have added this to the manuscript. 
+
+
+Our approach does apply for many other cases of force distribution functions besides linear tether points. We have included a discussion of this in Section 4 (Solution Methods).
+
+
+
+
+\item {\em How would this method be used to treat periodic elastic interfaces?}
+ The method has no problem handling periodic interfaces. In fact, our motivation was to build a robust non-stiff method for immersed interfaces of a very general kind (this includes even discontinuous cases) and not just periodic. We detailed one such situation in our previous, 2D work [JCP, 228(19), 7137--7158, 2009], where we modeled flow fast a heart valve in an artery. There the artery was modeled by a periodic immersed boundary.
+
+
+\item {\em Tom Hou and collaborators have several recent papers on removing the
+stiffness from the immersed boundary method which are not cited in the current paper. Can the authors please cite these, and discuss if or how they are related to the current work?}
+
+We are now citing these works. In defense of this regrettable omission, we note however that the articles of Hou and Shi [4,5] were perhaps more appropriately mentioned and discussed within the context of our 2D work [JCP, 228(19), 7137--7158, 2009] where we addressed the issue of  stiffness in detail. In contrast, our current paper focuses on a fast way to solve (with special emphasis to the 3D case)  a non-stiff, semi-implicit discretization which has already been proven, both analytically and numerically, to be quite robust [8, 1]. Our current work is fundamentally very different from that of  Hou and Shi. Incidentally,  their method applies exclusively to periodic interfaces.
+
+\end{enumerate}
+
+
+ \end{document}
+ 
